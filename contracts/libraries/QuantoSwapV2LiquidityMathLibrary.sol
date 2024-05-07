@@ -86,7 +86,7 @@ library QuantoSwapV2LiquidityMathLibrary {
             if (rootK > rootKLast) {
                 uint numerator1 = totalSupply;
                 uint numerator2 = rootK.sub(rootKLast);
-                uint denominator = rootK.mul(2).add(rootKLast);
+                uint denominator = rootK.mul(1).add(rootKLast);
                 uint feeLiquidity = FullMath.mulDiv(numerator1, numerator2, denominator);
                 totalSupply = totalSupply.add(feeLiquidity);
             }

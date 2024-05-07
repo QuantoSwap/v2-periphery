@@ -37,6 +37,7 @@ contract QuantoSwapV2Router02 is IQuantoSwapV2Router02 {
         uint amountAMin,
         uint amountBMin
     ) internal virtual returns (uint amountA, uint amountB) {
+        require(amountADesired >= amountAMin && amountBDesired >= amountBMin, "QuantoSwapV2Router: Bad amounts");
         // create the pair if it doesn't exist yet
         if (IQuantoSwapV2Factory(factory).getPair(tokenA, tokenB) == address(0)) {
             IQuantoSwapV2Factory(factory).createPair(tokenA, tokenB);
